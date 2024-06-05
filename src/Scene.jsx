@@ -74,17 +74,20 @@ export default function Scene() {
           <KeyboardControls map={keyboardMap}>
             {/* Character Control */}
             <Ecctrl
-              ref={controllerRigidBody}
+              ref={controllerRigidBody} d
               name={"Player"}
               animated
-              floatHeight={0.1}
+              floatHeight={1}
               jumpVel={5.76}
+              camInitDis={-5}
+              camMaxDis={-100}
+              position={[-20, 0, 10]}
             >
               <EcctrlAnimation
                 characterURL={characterURL} // Must have property
                 animationSet={animationSet} // Must have property
               >
-                <Ninja scale={0.5} position-y={-0.7} />
+                <Ninja scale={0.5} position-y={-0.8} />
               </EcctrlAnimation>
             </Ecctrl>
           </KeyboardControls>

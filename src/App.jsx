@@ -13,7 +13,7 @@ function App() {
     <>
       <Canvas
         onCreated={() => {
-          actions.loadNavMesh("./models/navmesh.glb");
+          actions.loadNavMesh("./models/navmesh.gltf");
         }}
       >
         <Scene />

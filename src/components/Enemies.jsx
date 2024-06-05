@@ -6,6 +6,7 @@ import { Manager } from "@ssethsara/react-three-npc";
 import { NavMeshConvex } from "./NavMeshConvex";
 import { NavMeshAgent } from "@ssethsara/react-three-npc";
 import { Box } from "@react-three/drei";
+import Golemmonk from "./Golemmonk";
 
 const Enemy = ({ enemy }) => (
   <NavMeshAgent
@@ -19,14 +20,7 @@ const Enemy = ({ enemy }) => (
     removed={enemy.removed}
     // isPlayerDetected={true}
   >
-    <group position={[0, 1, 0]}>
-      <Box scale={0.5} position={[0, 0, 0.5]}>
-        <meshBasicMaterial color={"red"}></meshBasicMaterial>
-      </Box>
-      <Box>
-        <meshBasicMaterial color={"blue"}></meshBasicMaterial>
-      </Box>
-    </group>
+    <Golemmonk />
   </NavMeshAgent>
 );
 
@@ -35,11 +29,11 @@ export default function Enemies() {
     {
       name: "Enemy",
       agentId: "e1",
-      position: [10, 2, 20],
+      position: [2, 1, 2],
       navPoints: [
-        new Vector3(10, 2, 10),
-        new Vector3(50, 2, 60),
-        new Vector3(90, 2, 30),
+        new Vector3(10, 1, 10),
+        new Vector3(50, 1, 60),
+        new Vector3(90, 1, 30),
       ],
       maxForce: 20,
       maxSpeed: 5,
@@ -50,11 +44,11 @@ export default function Enemies() {
     {
       name: "Enemy",
       agentId: "e2",
-      position: [-10, 2, -10],
+      position: [-2, 1, -2],
       navPoints: [
-        new Vector3(-10, 2, -10),
-        new Vector3(50, 2, 60),
-        new Vector3(-30, 2, -60),
+        new Vector3(-10, 1, -10),
+        new Vector3(50, 1, 60),
+        new Vector3(-30, 1, -60),
       ],
       maxForce: 10,
       maxSpeed: 5,
@@ -81,7 +75,7 @@ export default function Enemies() {
       <Manager key="manager">
         {enemiesList}
         <group position={[0, 0, 0]} scale={1}>
-          <NavMeshConvex visible={false} />
+          {/* <NavMeshConvex visible={true} /> */}
         </group>
       </Manager>
     </>

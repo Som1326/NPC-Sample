@@ -7,17 +7,23 @@ Command: npx gltfjsx@6.2.16 --shadows .\public\models\ground.glb
 import { useGLTF } from "@react-three/drei";
 
 export function Ground(props) {
-  const { nodes, materials } = useGLTF("./models/ground.glb");
+  const { nodes, materials } = useGLTF('./models/laberinto.glb')
   return (
     <group {...props} dispose={null}>
       <mesh
         castShadow
         receiveShadow
-        geometry={nodes.terrain.geometry}
-        material={materials.terrain_floor}
+        geometry={nodes.FloorLaberinto.geometry}
+        material={materials.Sand}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Walls.geometry}
+        material={materials['BrownStone.001']}
       />
     </group>
-  );
+  )
 }
 
-useGLTF.preload("./models/ground.glb");
+useGLTF.preload("./models/laberinto.glbs");
